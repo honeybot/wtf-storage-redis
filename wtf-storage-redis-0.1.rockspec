@@ -14,6 +14,6 @@ dependencies = {
 build = {
    type = "builtin",
    modules = {
-      ["wtf.storage.redis] = "wtf/storages/redis.lua"
+      ["wtf.storages.redis] = "wtf/storages/redis.lua"
    }
 }
