@@ -9,7 +9,7 @@ description = {
    license = "MIT"
 }
 dependencies = {
-   "wtf-fork-luarestyredis >= 0.2"
+   "wtf-fork-lua-resty-redis >= 0.2"
 }
 build = {
    type = "builtin",
