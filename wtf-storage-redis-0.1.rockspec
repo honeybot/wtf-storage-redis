@@ -1,4 +1,4 @@
-package = "wtf-storages-redis-unix"
+package = "wtf-storage-redis"
 version = "0.1-1"
 source = {
    url = "git+https://github.com/honeybot/wtf-storage-redis",
