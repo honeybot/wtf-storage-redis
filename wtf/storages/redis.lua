@@ -8,8 +8,9 @@ _M.name = "redis"
 
 function _M:init(...)
   local err = tools.error
+  local ok, e, conn
+  
   local name = self:get_optional_parameter('name') or self.name
-
   local connection_method = self:get_mandatory_parameter('connection_method')
 
   if connection_method == "tcp" then
@@ -17,14 +18,14 @@ function _M:init(...)
     local host = self:get_optional_parameter('host') or "127.0.0.1"
     local port = self:get_optional_parameter('port') or "6379"
     
-    local conn = redis:new()
-    local ok, e = conn:connect(host, port)
+    conn = redis:new()
+    ok, e = conn:connect(host, port)
   elseif connection_method == "unix" then
     local redis = require("wtf.fork.resty.redis.unix")
     local redis_socket = self:get_mandatory_parameter('socket')
     
-    local conn = redis:new()
-    local ok, e = conn:connect(redis_socket)
+    conn = redis:new()
+    ok, e = conn:connect(redis_socket)
   else
     err("Unsupported connection method: '"..connection_method.."'. Supported methods are: 'tcp', 'unix'")
   end
